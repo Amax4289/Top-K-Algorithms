@@ -5,10 +5,15 @@
  */
 package top.k.algorithms;
 
+import java.util.List;
+
 /**
  *
  * @author Amax
  */
 public class Threshold_Algorithm {
 
+    public static void Threshold(Integer K, List<SystemAnswer> S1, List<SystemAnswer> S2, List<SystemAnswer> S3) {
+
+    }
 }
