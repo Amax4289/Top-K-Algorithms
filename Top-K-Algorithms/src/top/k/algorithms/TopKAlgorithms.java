@@ -41,8 +41,15 @@ public class TopKAlgorithms {
             System.out.println(S.Element);
             System.out.println(S.Score);
         }
+        for (SystemAnswer S : S2) {
+            System.out.println(S.Element);
+            System.out.println(S.Score);
+        }
+        for (SystemAnswer S : S3) {
+            System.out.println(S.Element);
+            System.out.println(S.Score);
+        }
 
-        /*
         while (choice != 3) {
 
             System.out.print("Please choose your Algorithm of choice: ");
@@ -65,8 +72,7 @@ public class TopKAlgorithms {
 
             }
 
-            System.out.println(choice);
-        }*/
+        }
     }
 
 }

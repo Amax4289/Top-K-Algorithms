@@ -54,7 +54,7 @@ public class SystemAnswer {
         SystemAnswer C2 = new SystemAnswer();
         C2.Element = 'C';
         C2.Score = (float) 0.8;
-        S2.add(E1);
+        S2.add(C2);
         SystemAnswer A2 = new SystemAnswer();
         A2.Element = 'A';
         A2.Score = (float) 0.7;
