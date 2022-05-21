@@ -56,6 +56,7 @@ public class TopKAlgorithms {
 
         while (choice != 3) {
 
+            K = -1;
             System.out.print("Please choose your Algorithm of choice: ");
             choice = scan.nextInt();
 

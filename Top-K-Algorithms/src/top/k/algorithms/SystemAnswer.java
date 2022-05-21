@@ -104,4 +104,14 @@ public class SystemAnswer {
 
     }
 
+    public static float getScore(List<SystemAnswer> system, String ele) {
+
+        for (SystemAnswer l : system) {
+            if (l.Element.equals(ele)) {
+                return l.Score;
+            }
+        }
+        return -999;
+    }
+
 }
