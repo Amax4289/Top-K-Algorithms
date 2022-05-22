@@ -50,7 +50,7 @@ public class TopKAlgorithms {
             switch (choice) {
 
                 case 1:
-                    System.out.println("Executing Fagin Algorithm...");
+
                     while (K < 1 || K > 6) {
                         System.out.println("Please input an acceptable value for 'K' : ");
                         K = scan.nextInt();
@@ -59,7 +59,7 @@ public class TopKAlgorithms {
                     break;
 
                 case 2:
-                    System.out.println("Executing Threshold Algorithm...");
+
                     while (K < 1 || K > 6) {
                         System.out.println("Please input an acceptable value for 'K' : ");
                         K = scan.nextInt();

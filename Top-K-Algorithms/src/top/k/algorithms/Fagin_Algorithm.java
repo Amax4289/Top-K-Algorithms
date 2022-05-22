@@ -22,14 +22,22 @@ public class Fagin_Algorithm {
         int lilK = 0;
         int flag = 0;
 
-        List<String> SeenElements = new ArrayList<String>();
-        List<String> SeenElementsScore = new ArrayList<String>();
-        List<String> justSeenElements = new ArrayList<String>();
+        List<String> SeenElements = new ArrayList<String>();        // Contains Seen Elements with Conjunction until the K point.
+        List<String> SeenElementsScore = new ArrayList<String>();   // Contains Element-Score.
+        List<String> justSeenElements = new ArrayList<String>();    // Contains Seen Elements without Conjunction, used to getScore of these elements.
 
+        System.out.println("Executing Fagin Algorithm...");
+
+        /* For each answer */
         for (int cols = 0; cols < Size; cols++) {
 
             for (int i = 0; i <= cols; i++) {
 
+                /*
+                Because we have 3 systems it's easy to check manually,
+                if we had more systems, this could be automated in a for loop,
+                or a separate function.
+                 */
                 if (!justSeenElements.contains(S1.get(i).Element)) {
                     String el = S1.get(i).Element;
                     justSeenElements.add(el);
@@ -49,8 +57,10 @@ public class Fagin_Algorithm {
 
                         for (int k = 0; k <= cols; k++) {
 
+                            /* Found Conjunction */
                             if (S2.get(j).Element.equals(S3.get(k).Element)) {
 
+                                /* If doesn't already exist. New Conjunction */
                                 if (!SeenElements.contains(S3.get(k).Element)) {
 
                                     if (lilK == K) {
@@ -58,22 +68,20 @@ public class Fagin_Algorithm {
                                         break;
                                     }
 
+                                    /* Add Element to the list, along with it's score */
                                     String element = S3.get(k).Element;
                                     float score = (float) S1.get(i).Score + (float) S2.get(j).Score + (float) S3.get(k).Score;
                                     String scoreElement = String.format("%.1f", score) + "\t" + S3.get(k).Element;
-
                                     SeenElements.add(element);
                                     SeenElementsScore.add(scoreElement);
 
                                     lilK++;
-
                                 }
                             }
                         }
                         if (flag == 1) {
                             break;
                         }
-
                     }
                     if (flag == 1) {
                         break;
@@ -90,6 +98,7 @@ public class Fagin_Algorithm {
 
         }
 
+        /* Get (Random Access) Score of Elements */
         for (String ele : justSeenElements) {
             if (!SeenElements.contains(ele)) {
                 float score = 0;
@@ -101,14 +110,13 @@ public class Fagin_Algorithm {
             }
         }
 
-        Collections.sort(SeenElementsScore);
+        Collections.sort(SeenElementsScore); // Sort Scores
 
+        /* Print Top-K Elements */
         System.out.println("Score   Element");
-
         for (int i = SeenElementsScore.size() - 1; i >= SeenElementsScore.size() - K; i--) {
-
             System.out.println(SeenElementsScore.get(i));
         }
-
+        System.out.println("---------------------------------------");
     }
 }
