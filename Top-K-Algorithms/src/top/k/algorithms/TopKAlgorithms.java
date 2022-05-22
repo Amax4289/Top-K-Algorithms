@@ -40,30 +40,17 @@ public class TopKAlgorithms {
         Scanner scan = new Scanner(System.in);
         int choice = 0;
         int K = -1;
-        /*
-        for (SystemAnswer S : S1) {
-            System.out.println(S.Element);
-            System.out.println(S.Score);
-        }
-        for (SystemAnswer S : S2) {
-            System.out.println(S.Element);
-            System.out.println(S.Score);
-        }
-        for (SystemAnswer S : S3) {
-            System.out.println(S.Element);
-            System.out.println(S.Score);
-        }*/
 
         while (choice != 3) {
 
             K = -1;
-            System.out.print("Please choose your Algorithm of choice: ");
+            System.out.print("Please choose your Algorithm: ");
             choice = scan.nextInt();
 
             switch (choice) {
 
                 case 1:
-                    System.out.println("Executing Fagin Algorithm.");
+                    System.out.println("Executing Fagin Algorithm...");
                     while (K < 1 || K > 6) {
                         System.out.println("Please input an acceptable value for 'K' : ");
                         K = scan.nextInt();
@@ -72,7 +59,7 @@ public class TopKAlgorithms {
                     break;
 
                 case 2:
-                    System.out.println("Executing Threshold Algorithm.");
+                    System.out.println("Executing Threshold Algorithm...");
                     while (K < 1 || K > 6) {
                         System.out.println("Please input an acceptable value for 'K' : ");
                         K = scan.nextInt();

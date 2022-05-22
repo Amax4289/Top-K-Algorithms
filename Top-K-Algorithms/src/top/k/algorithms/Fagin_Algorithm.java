@@ -18,8 +18,6 @@ public class Fagin_Algorithm {
 
     public static void Fagin(Integer K, List<SystemAnswer> S1, List<SystemAnswer> S2, List<SystemAnswer> S3) {
 
-        System.out.println("WE ARE IN");
-
         int Size = S1.size();
         int lilK = 0;
         int flag = 0;
@@ -29,15 +27,6 @@ public class Fagin_Algorithm {
         List<String> justSeenElements = new ArrayList<String>();
 
         for (int cols = 0; cols < Size; cols++) {
-            /*
-            if (S1.get(i).Element.equals(S2.get(i).Element) && S2.get(i).Element.equals(S3.get(i).Element)) {
-
-                float y = S1.get(i).Score + S2.get(i).Score + S3.get(i).Score;
-                String x = S3.get(i).Element + " " + y;
-                SeenElements.add(x);
-                lilK++;
-                System.out.println("Found?");
-            }*/
 
             for (int i = 0; i <= cols; i++) {
 
@@ -71,7 +60,7 @@ public class Fagin_Algorithm {
 
                                     String element = S3.get(k).Element;
                                     float score = (float) S1.get(i).Score + (float) S2.get(j).Score + (float) S3.get(k).Score;
-                                    String scoreElement = String.format("%.1f", score) + " " + S3.get(k).Element;
+                                    String scoreElement = String.format("%.1f", score) + "\t" + S3.get(k).Element;
 
                                     SeenElements.add(element);
                                     SeenElementsScore.add(scoreElement);
@@ -103,19 +92,18 @@ public class Fagin_Algorithm {
 
         for (String ele : justSeenElements) {
             if (!SeenElements.contains(ele)) {
-                System.out.println("adding " + ele);
                 float score = 0;
                 score = score + getScore(S1, ele);
                 score = score + getScore(S2, ele);
                 score = score + getScore(S3, ele);
-                String scoreElement = String.format("%.1f", score) + " " + ele;
+                String scoreElement = String.format("%.1f", score) + "\t" + ele;
                 SeenElementsScore.add(scoreElement);
             }
         }
 
         Collections.sort(SeenElementsScore);
 
-        System.out.println("--------------------------");
+        System.out.println("Score   Element");
 
         for (int i = SeenElementsScore.size() - 1; i >= SeenElementsScore.size() - K; i--) {
 
